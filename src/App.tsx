@@ -16,6 +16,7 @@ function App() {
     },
   });
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   /**
    * Fetches a random quote.
@@ -27,6 +28,7 @@ function App() {
    * it falls back to a direct `fetch` call to the API.
    */
   const fetchQuote = () => {
+    setLoading(true);
     setError(null);
     if (
       typeof chrome !== "undefined" &&
@@ -39,6 +41,7 @@ function App() {
           if (chrome.runtime.lastError) {
             console.error(chrome.runtime.lastError);
             setError("Error connecting to background script.");
+            setLoading(false);
             return;
           }
           if (response && response.success) {
@@ -48,6 +51,7 @@ function App() {
               response?.error || "An error occurred while fetching the quote."
             );
           }
+          setLoading(false);
         }
       );
     } else {
@@ -57,7 +61,8 @@ function App() {
           return response.json();
         })
         .then((data) => setQuote(data))
-        .catch(() => setError("An error occurred while fetching the quote."));
+        .catch(() => setError("An error occurred while fetching the quote."))
+        .finally(() => setLoading(false));
     }
   };
 
@@ -77,7 +82,14 @@ function App() {
     }
   }, [quote, error]);
 
-  return <Quote quote={quote} error={error} onRefresh={fetchQuote} />;
+  return (
+    <Quote
+      quote={quote}
+      error={error}
+      loading={loading}
+      onRefresh={fetchQuote}
+    />
+  );
 }
 
 export default App;

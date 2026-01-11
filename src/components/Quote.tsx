@@ -64,10 +64,11 @@ function HouseLogo({ slug, name }: { slug?: string; name?: string }) {
 interface QuoteProps {
   quote: QuoteData;
   error: string | null;
+  loading: boolean;
   onRefresh: () => void;
 }
 
-export function Quote({ quote, error, onRefresh }: QuoteProps) {
+export function Quote({ quote, error, loading, onRefresh }: QuoteProps) {
   const houseSlug = quote.character.house?.slug;
   const houseName = quote.character.house?.name;
 
@@ -79,7 +80,9 @@ export function Quote({ quote, error, onRefresh }: QuoteProps) {
 
   return (
     <main className="advice-card">
-      {error ? (
+      {loading ? (
+        <p className="advice-quote">Loading...</p>
+      ) : error ? (
         <p className="advice-quote">{error}</p>
       ) : (
         <>
@@ -99,10 +102,11 @@ export function Quote({ quote, error, onRefresh }: QuoteProps) {
           className="quote-button"
           id="generate-advice-btn"
           onClick={onRefresh}
+          disabled={loading}
         >
           <Repeat />
         </button>
-        {!error && (
+        {!error && !loading && (
           <button
             className="copy-button"
             id="copy-advice-btn"

@@ -745,6 +745,17 @@ body {
   margin-bottom: 20px;
 }
 
+.button-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1.75rem;
+  gap: 1rem;
+}
+
 .advice-quote {
   color: var(--text-color);
   font-size: 1.5em;
@@ -755,28 +766,24 @@ body {
   padding: 0 15px;
 }
 
-.quote-button {
+.quote-button,
+.copy-button {
   background-color: var(--accent-color);
   border: none;
   border-radius: 50%;
   width: 3.5rem;
   height: 3.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
-  position: absolute;
-  bottom: -1.75rem;
-  left: 50%;
-  transform: translateX(-50%);
   transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
 }
 
-.quote-button:hover {
+.quote-button:hover,
+.copy-button:hover {
   box-shadow: 0 0 40px var(--accent-color);
 }
 
-.quote-button svg {
+.quote-button svg,
+.copy-button svg {
   width: 1.5rem;
   height: 1.5rem;
   color: var(--button-text-color);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Repeat } from "lucide-react";
+import { Repeat, Copy } from "lucide-react";
 
 export interface House {
   name: string;
@@ -71,6 +71,12 @@ export function Quote({ quote, error, onRefresh }: QuoteProps) {
   const houseSlug = quote.character.house?.slug;
   const houseName = quote.character.house?.name;
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(
+      `«${quote.sentence}» — ${quote.character.name}`
+    );
+  };
+
   return (
     <main className="advice-card">
       {error ? (
@@ -88,13 +94,24 @@ export function Quote({ quote, error, onRefresh }: QuoteProps) {
           {houseName && <p className="house-name">{houseName}</p>}
         </>
       )}
-      <button
-        className="quote-button"
-        id="generate-advice-btn"
-        onClick={onRefresh}
-      >
-        <Repeat />
-      </button>
+      <div className="button-container">
+        <button
+          className="quote-button"
+          id="generate-advice-btn"
+          onClick={onRefresh}
+        >
+          <Repeat />
+        </button>
+        {!error && (
+          <button
+            className="copy-button"
+            id="copy-advice-btn"
+            onClick={handleCopy}
+          >
+            <Copy />
+          </button>
+        )}
+      </div>
     </main>
   );
 }

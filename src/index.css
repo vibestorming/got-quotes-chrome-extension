@@ -1,0 +1,809 @@
+:root {
+  /* Default / Neutral Theme */
+  --bg-color: hsl(218, 23%, 16%);
+  --card-bg: hsl(217, 19%, 25%);
+  --text-color: hsl(193, 38%, 86%);
+  --accent-color: #ffd700;
+  --button-text-color: hsl(218, 23%, 16%);
+
+  /* Typography */
+  --ff-manrope: "Manrope", sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+/* House Themes */
+.stark {
+  --bg-color: #1a1a1a;
+  --card-bg: #333333;
+  --text-color: #f5f5f5;
+  --accent-color: #8d99ae; /* Wolf Grey */
+  --button-text-color: #1a1a1a;
+}
+
+.lannister {
+  --bg-color: #4a0e0e;
+  --card-bg: #741b1b;
+  --text-color: #ffd700; /* Gold */
+  --accent-color: #ffd700;
+  --button-text-color: #4a0e0e;
+}
+
+.targaryen {
+  --bg-color: #000000;
+  --card-bg: #1a1a1a;
+  --text-color: #e0e0e0;
+  --accent-color: #c90000; /* Dragon Red */
+  --button-text-color: #ffffff;
+}
+
+.baratheon {
+  --bg-color: #2e2b05;
+  --card-bg: #4a4608;
+  --text-color: #ffffff;
+  --accent-color: #fbff00; /* Stag Gold */
+  --button-text-color: #2e2b05;
+}
+
+.greyjoy {
+  --bg-color: #1a1a1a;
+  --card-bg: #2f3640;
+  --text-color: #e0e0e0;
+  --accent-color: #f1c40f; /* Kraken Gold */
+  --button-text-color: #1a1a1a;
+}
+
+.martell {
+  --bg-color: #5e2c04;
+  --card-bg: #8c4206;
+  --text-color: #ffffff;
+  --accent-color: #e67e22; /* Sun Orange */
+  --button-text-color: #5e2c04;
+}
+
+.tyrell {
+  --bg-color: #1b4d1b;
+  --card-bg: #2e7d32;
+  --text-color: #f1f8e9;
+  --accent-color: #f1c40f; /* Rose Gold */
+  --button-text-color: #1b4d1b;
+}
+
+.bolton {
+  --bg-color: #2c0b0e;
+  --card-bg: #4a1c20;
+  --text-color: #ffcdd2;
+  --accent-color: #e57373; /* Flayed Pink/Red */
+  --button-text-color: #2c0b0e;
+}
+
+.frey {
+  --bg-color: #2c3e50;
+  --card-bg: #34495e;
+  --text-color: #ecf0f1;
+  --accent-color: #95a5a6; /* Towers Grey */
+  --button-text-color: #2c3e50;
+}
+
+.mormont {
+  --bg-color: #082e15;
+  --card-bg: #145a32;
+  --text-color: #e8f5e9;
+  --accent-color: #a5d6a7; /* Bear Green */
+  --button-text-color: #082e15;
+}
+
+.tarly {
+  --bg-color: #1b5e20;
+  --card-bg: #388e3c;
+  --text-color: #ffffff;
+  --accent-color: #c62828; /* Huntsman Red */
+  --button-text-color: #ffffff;
+}
+
+.tarth {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #ffffff;
+  --accent-color: #f48fb1; /* Rose Pink */
+  --button-text-color: #0d47a1;
+}
+
+.baelish {
+  --bg-color: #1a237e;
+  --card-bg: #283593;
+  --text-color: #ffffff;
+  --accent-color: #00e676; /* Mockingbird Green */
+  --button-text-color: #1a237e;
+}
+
+.clegane {
+  --bg-color: #3e2723;
+  --card-bg: #5d4037;
+  --text-color: #fff3e0;
+  --accent-color: #ffeb3b; /* Dog Yellow */
+  --button-text-color: #3e2723;
+}
+
+.arryn {
+  --bg-color: #2b5c8a;
+  --card-bg: #5f8db9;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #2b5c8a;
+}
+
+.ashford {
+  --bg-color: #a35401;
+  --card-bg: #d48326;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #a35401;
+}
+
+.beesbury {
+  --bg-color: #3d3d3d;
+  --card-bg: #555555;
+  --text-color: #fdd835;
+  --accent-color: #fdd835;
+  --button-text-color: #000000;
+}
+
+.blackbar {
+  --bg-color: #000000;
+  --card-bg: #222222;
+  --text-color: #f5f5f5;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.blackmont {
+  --bg-color: #000000;
+  --card-bg: #222222;
+  --text-color: #ffeb3b;
+  --accent-color: #e53935;
+  --button-text-color: #000000;
+}
+
+.blacktyde {
+  --bg-color: #00332e;
+  --card-bg: #004d40;
+  --text-color: #e0f2f1;
+  --accent-color: #a7ffeb;
+  --button-text-color: #00332e;
+}
+
+.blackwood {
+  --bg-color: #000000;
+  --card-bg: #212121;
+  --text-color: #f5f5f5;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.blount {
+  --bg-color: #4e342e;
+  --card-bg: #6d4c41;
+  --text-color: #d7ccc8;
+  --accent-color: #ff8a65;
+  --button-text-color: #4e342e;
+}
+
+.botley {
+  --bg-color: #004d40;
+  --card-bg: #00695c;
+  --text-color: #e0f2f1;
+  --accent-color: #fdd835;
+  --button-text-color: #004d40;
+}
+
+.bracken {
+  --bg-color: #4e342e;
+  --card-bg: #6d4c41;
+  --text-color: #fdd835;
+  --accent-color: #e53935;
+  --button-text-color: #ffffff;
+}
+
+.caron {
+  --bg-color: #311b92;
+  --card-bg: #4527a0;
+  --text-color: #ffeb3b;
+  --accent-color: #ffeb3b;
+  --button-text-color: #311b92;
+}
+
+.celtigar {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #e53935;
+  --accent-color: #e53935;
+  --button-text-color: #ffffff;
+}
+
+.cerwyn {
+  --bg-color: #616161;
+  --card-bg: #757575;
+  --text-color: #ffffff;
+  --accent-color: #000000;
+  --button-text-color: #ffffff;
+}
+
+.cole {
+  --bg-color: #000000;
+  --card-bg: #212121;
+  --text-color: #e53935;
+  --accent-color: #e53935;
+  --button-text-color: #ffffff;
+}
+
+.connington {
+  --bg-color: #f5f5f5;
+  --card-bg: #e0e0e0;
+  --text-color: #b71c1c;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.corbray {
+  --bg-color: #f5f5f5;
+  --card-bg: #e0e0e0;
+  --text-color: #212121;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.crakehall {
+  --bg-color: #424242;
+  --card-bg: #616161;
+  --text-color: #ffeb3b;
+  --accent-color: #ffeb3b;
+  --button-text-color: #424242;
+}
+
+.dalt {
+  --bg-color: #4a148c;
+  --card-bg: #6a1b9a;
+  --text-color: #ffeb3b;
+  --accent-color: #ffeb3b;
+  --button-text-color: #4a148c;
+}
+
+.darklyn {
+  --bg-color: #fdd835;
+  --card-bg: #fff176;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.dayne {
+  --bg-color: #4a148c;
+  --card-bg: #6a1b9a;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #4a148c;
+}
+
+.dondarrion {
+  --bg-color: #000000;
+  --card-bg: #212121;
+  --text-color: #fdd835;
+  --accent-color: #f48fb1;
+  --button-text-color: #000000;
+}
+
+.drumm {
+  --bg-color: #b71c1c;
+  --card-bg: #d32f2f;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #b71c1c;
+}
+
+.dustin {
+  --bg-color: #ffeb3b;
+  --card-bg: #fff176;
+  --text-color: #212121;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.florent {
+  --bg-color: #607d8b;
+  --card-bg: #78909c;
+  --text-color: #ffeb3b;
+  --accent-color: #ffeb3b;
+  --button-text-color: #263238;
+}
+
+.fossoway {
+  --bg-color: #b71c1c;
+  --card-bg: #d32f2f;
+  --text-color: #fdd835;
+  --accent-color: #fdd835;
+  --button-text-color: #b71c1c;
+}
+
+.gardener {
+  --bg-color: #2e7d32;
+  --card-bg: #388e3c;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #2e7d32;
+}
+
+.gaunt {
+  --bg-color: #000000;
+  --card-bg: #212121;
+  --text-color: #ffffff;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.glover {
+  --bg-color: #b71c1c;
+  --card-bg: #d32f2f;
+  --text-color: #e0e0e0;
+  --accent-color: #e0e0e0;
+  --button-text-color: #b71c1c;
+}
+
+.haigh {
+  --bg-color: #4e342e;
+  --card-bg: #6d4c41;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #4e342e;
+}
+
+.harlaw {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #e0e0e0;
+  --accent-color: #e0e0e0;
+  --button-text-color: #212121;
+}
+
+.harroway {
+  --bg-color: #ff9800;
+  --card-bg: #fb8c00;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.hastwyck {
+  --bg-color: #ffb300;
+  --card-bg: #ffc107;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.hoare {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #e0e0e0;
+  --accent-color: #c0c0c0;
+  --button-text-color: #212121;
+}
+
+.hollard {
+  --bg-color: #b71c1c;
+  --card-bg: #d32f2f;
+  --text-color: #e1f5fe;
+  --accent-color: #e1f5fe;
+  --button-text-color: #b71c1c;
+}
+
+.hornwood {
+  --bg-color: #ff9800;
+  --card-bg: #fb8c00;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.jordayne {
+  --bg-color: #fbc02d;
+  --card-bg: #fdd835;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.karstark {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #212121;
+}
+
+.lefford {
+  --bg-color: #ffeb3b;
+  --card-bg: #fff176;
+  --text-color: #0d47a1;
+  --accent-color: #0d47a1;
+  --button-text-color: #ffffff;
+}
+
+.leygood {
+  --bg-color: #ffc107;
+  --card-bg: #ffd54f;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.lothston {
+  --bg-color: #000000;
+  --card-bg: #212121;
+  --text-color: #f5f5f5;
+  --accent-color: #fdd835;
+  --button-text-color: #000000;
+}
+
+.mallister {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #e3f2fd;
+  --accent-color: #e3f2fd;
+  --button-text-color: #0d47a1;
+}
+
+.manderly {
+  --bg-color: #00695c;
+  --card-bg: #00897b;
+  --text-color: #e0f2f1;
+  --accent-color: #e0f2f1;
+  --button-text-color: #00695c;
+}
+
+.manwoody {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #fdd835;
+  --accent-color: #fdd835;
+  --button-text-color: #212121;
+}
+
+.marbrand {
+  --bg-color: #4caf50;
+  --card-bg: #66bb6a;
+  --text-color: #000000;
+  --accent-color: #ff9800;
+  --button-text-color: #ffffff;
+}
+
+.mazin {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #fdd835;
+  --accent-color: #fdd835;
+  --button-text-color: #212121;
+}
+
+.mooton {
+  --bg-color: #b71c1c;
+  --card-bg: #d32f2f;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #b71c1c;
+}
+
+.morrigen {
+  --bg-color: #004d40;
+  --card-bg: #00695c;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #004d40;
+}
+
+.mudd {
+  --bg-color: #795548;
+  --card-bg: #8d6e63;
+  --text-color: #fdd835;
+  --accent-color: #fdd835;
+  --button-text-color: #4e342e;
+}
+
+.payne {
+  --bg-color: #4a148c;
+  --card-bg: #6a1b9a;
+  --text-color: #ffffff;
+  --accent-color: #e1bee7;
+  --button-text-color: #4a148c;
+}
+
+.peake {
+  --bg-color: #ff6f00;
+  --card-bg: #ff8f00;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.qorgyle {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #f44336;
+  --accent-color: #f44336;
+  --button-text-color: #ffffff;
+}
+
+.redwyne {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #e3f2fd;
+  --accent-color: #e3f2fd;
+  --button-text-color: #0d47a1;
+}
+
+.reed {
+  --bg-color: #558b2f;
+  --card-bg: #7cb342;
+  --text-color: #000000;
+  --accent-color: #f1f8e9;
+  --button-text-color: #33691e;
+}
+
+.reyne {
+  --bg-color: #610c0c;
+  --card-bg: #8f1d1d;
+  --text-color: #e0e0e0;
+  --accent-color: #c0c0c0; /* Silver */
+  --button-text-color: #610c0c;
+}
+
+.rosby {
+  --bg-color: #b71c1c;
+  --card-bg: #d32f2f;
+  --text-color: #e0e0e0;
+  --accent-color: #e0e0e0;
+  --button-text-color: #b71c1c;
+}
+
+.rowan {
+  --bg-color: #fdd835;
+  --card-bg: #fff176;
+  --text-color: #212121;
+  --accent-color: #212121;
+  --button-text-color: #ffffff;
+}
+
+.royce {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #ff9800;
+  --accent-color: #ff9800;
+  --button-text-color: #212121;
+}
+
+.seaworth {
+  --bg-color: #424242;
+  --card-bg: #616161;
+  --text-color: #ffffff;
+  --accent-color: #000000;
+  --button-text-color: #ffffff;
+}
+
+.selmy {
+  --bg-color: #a1887f;
+  --card-bg: #bcaaa4;
+  --text-color: #3e2723;
+  --accent-color: #5d4037;
+  --button-text-color: #4e342e;
+}
+
+.staunton {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #212121;
+}
+
+.stokeworth {
+  --bg-color: #4caf50;
+  --card-bg: #66bb6a;
+  --text-color: #000000;
+  --accent-color: #ffffff;
+  --button-text-color: #388e3c;
+}
+
+.strong {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #e53935;
+  --accent-color: #e53935;
+  --button-text-color: #ffffff;
+}
+
+.sunglass {
+  --bg-color: #f5f5f5;
+  --card-bg: #e0e0e0;
+  --text-color: #000000;
+  --accent-color: #ff6f00;
+  --button-text-color: #ffffff;
+}
+
+.swann {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #e0e0e0;
+  --accent-color: #e0e0e0;
+  --button-text-color: #212121;
+}
+
+.swyft {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #ffeb3b;
+  --accent-color: #ffeb3b;
+  --button-text-color: #0d47a1;
+}
+
+.tarbeck {
+  --bg-color: #0d47a1;
+  --card-bg: #1565c0;
+  --text-color: #ffffff;
+  --accent-color: #b71c1c;
+  --button-text-color: #ffffff;
+}
+
+.towers {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #ff9800;
+  --accent-color: #ff9800;
+  --button-text-color: #212121;
+}
+
+.tully {
+  --bg-color: #0d3d56;
+  --card-bg: #1a5c83;
+  --text-color: #ffffff;
+  --accent-color: #d13a3a; /* Red */
+  --button-text-color: #ffffff;
+}
+
+.umber {
+  --bg-color: #4e0a0a;
+  --card-bg: #7a1e1e;
+  --text-color: #bdbdbd;
+  --accent-color: #e0e0e0; /* Chain color */
+  --button-text-color: #4e0a0a;
+}
+
+.velaryon {
+  --bg-color: #004d40;
+  --card-bg: #00796b;
+  --text-color: #e0f2f1;
+  --accent-color: #b2dfdb; /* Silver/light sea green */
+  --button-text-color: #004d40;
+}
+
+.waynwood {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #4caf50;
+  --accent-color: #4caf50;
+  --button-text-color: #ffffff;
+}
+
+.whent {
+  --bg-color: #212121;
+  --card-bg: #424242;
+  --text-color: #fdd835;
+  --accent-color: #fdd835;
+  --button-text-color: #212121;
+}
+
+.wylde {
+  --bg-color: #01579b;
+  --card-bg: #0277bd;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --button-text-color: #01579b;
+}
+/* End House Themes */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff-manrope);
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 30rem;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.advice-card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.advice-id {
+  color: var(--accent-color);
+  font-size: 0.8em;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.advice-quote {
+  color: var(--text-color);
+  font-size: 1.5em;
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding: 0 15px;
+}
+
+.quote-button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.quote-button:hover {
+  box-shadow: 0 0 40px var(--accent-color);
+}
+
+.quote-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--button-text-color);
+}
+
+.house-logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.house-logo {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.house-logo svg {
+  height: 100%;
+  filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+.house-name {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}

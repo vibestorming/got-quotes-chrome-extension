@@ -1,110 +1,83 @@
 import { useEffect, useState } from "react";
-import { Repeat } from "lucide-react";
 import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/800.css";
 import "./index.css";
-
-interface House {
-  name: string;
-  slug: string;
-}
-
-interface Character {
-  name: string;
-  slug: string;
-  house: House | null;
-}
-
-interface Quote {
-  sentence: string;
-  character: Character;
-}
-
-const svgImports = import.meta.glob("./assets/houses/*.svg", {
-  query: "?raw",
-  import: "default",
-});
-
-function HouseLogo({ slug, name }: { slug?: string; name?: string }) {
-  const [svg, setSvg] = useState<string>("");
-
-  useEffect(() => {
-    let isCancelled = false;
-    const loadSvg = async () => {
-      const path = `./assets/houses/${slug || "default"}.svg`;
-      const defaultPath = "./assets/houses/default.svg";
-
-      const loader = svgImports[path] ?? svgImports[defaultPath];
-
-      if (loader) {
-        try {
-          const svgContent = await loader();
-          if (!isCancelled) {
-            setSvg(svgContent as string);
-          }
-        } catch (e) {
-          console.error("Error loading SVG:", e);
-        }
-      }
-    };
-
-    loadSvg();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [slug]);
-
-  return (
-    <div
-      className="house-logo"
-      dangerouslySetInnerHTML={{ __html: svg }}
-      title={name || "Game of Thrones"}
-    />
-  );
-}
+import { Quote, QuoteData } from "@components/Quote";
 
 function App() {
-  const [quote, setQuote] = useState<Quote>({
-    sentence:
-      "The day will come when you think you are safe and happy, and your joy will turn to ashes in your mouth.",
+  const got_api = "https://api.gameofthronesquotes.xyz/v1/random";
+
+  const [quote, setQuote] = useState<QuoteData>({
+    sentence: "",
     character: {
-      name: "Tyrion Lannister",
-      slug: "tyrion",
-      house: {
-        name: "House Lannister of Casterly Rock",
-        slug: "lannister",
-      },
+      name: "",
+      slug: "",
+      house: null,
     },
   });
+  const [error, setError] = useState<string | null>(null);
+
+  /**
+   * Fetches a random quote.
+   *
+   * When running as a Chrome extension, this function delegates the fetch request
+   * to the background service worker using `chrome.runtime.sendMessage`.
+   *
+   * In a local development environment where the Chrome Extension API is not available,
+   * it falls back to a direct `fetch` call to the API.
+   */
+  const fetchQuote = () => {
+    setError(null);
+    if (
+      typeof chrome !== "undefined" &&
+      chrome.runtime &&
+      chrome.runtime.sendMessage
+    ) {
+      chrome.runtime.sendMessage(
+        { action: "fetchQuote", url: got_api },
+        (response) => {
+          if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError);
+            setError("Error connecting to background script.");
+            return;
+          }
+          if (response && response.success) {
+            setQuote(response.data);
+          } else {
+            setError(
+              response?.error || "An error occurred while fetching the quote."
+            );
+          }
+        }
+      );
+    } else {
+      fetch(got_api)
+        .then((response) => {
+          if (!response.ok) throw new Error("Failed to fetch");
+          return response.json();
+        })
+        .then((data) => setQuote(data))
+        .catch(() => setError("An error occurred while fetching the quote."));
+    }
+  };
 
   useEffect(() => {
+    fetchQuote();
+  }, []);
+
+  useEffect(() => {
+    if (error) {
+      document.body.className = "";
+      return;
+    }
     if (quote.character.house?.slug) {
       document.body.className = quote.character.house.slug.toLowerCase();
     } else {
       document.body.className = "";
     }
-  }, [quote]);
+  }, [quote, error]);
 
-  const houseSlug = quote.character.house?.slug;
-  const houseName = quote.character.house?.name;
-
-  return (
-    <main className="advice-card">
-      <div className="house-logo-container">
-        <HouseLogo slug={houseSlug} name={houseName} />
-      </div>
-      <p className="advice-quote" id="advice-quote">
-        «{quote.sentence}»
-      </p>
-
-      <h4 className="advice-id">{quote.character.name}</h4>
-      {houseName && <p className="house-name">{houseName}</p>}
-      <button className="quote-button" id="generate-advice-btn">
-        <Repeat />
-      </button>
-    </main>
-  );
+  return <Quote quote={quote} error={error} onRefresh={fetchQuote} />;
 }
 
 export default App;

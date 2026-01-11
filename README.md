@@ -45,3 +45,7 @@ This will generate the build files in the `build` directory.
 1. Open Chrome and navigate to `chrome://extensions/`.
 2. Enable "Developer mode" using the toggle switch in the top right corner.
 3. Click "Load unpacked" and select the `build` directory.
+
+## Credits
+
+- Heraldry obtained from [Game of Thrones Fandom Wiki](https://gameofthrones.fandom.com/wiki/Heraldry).
